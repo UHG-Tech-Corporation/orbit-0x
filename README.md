@@ -1,6 +1,6 @@
 ﻿# ORBIT 0X 🚀
 
-> **Sovereign Web Gateway** — Built on De-Googled Chromium, C++, and Rust.
+> **The First Sovereign & AI-Native Web Gateway** — Built on De-Googled Chromium, C++, and Rust.
 
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](#)
@@ -9,10 +9,11 @@
 ## 🌟 Features
 
 *   **De-Googled Core**: Complete removal of Google telemetry and tracking hooks.
+*   **"L'Ombre" AI Search Synthesis**: On-device AI capsule natively integrated to read, understand, and summarize search results in real-time, completely off-grid.
 *   **Native Rust Ad-Blocker**: Embedded at network stack level for 40% RAM savings.
-*   **"L'Ombre" AI System**: On-device AI capsule (Rust) + Cloud API for deep reasoning.
 *   **0X Security Integration**: Native cryptographic verification via Mojo IPC bridge for OMNEX 0X OS.
-*   **Privacy-First Search**: Default search selector with affiliate integration.
+*   **Privacy-First Search**: Neutral default search selector (Ballot Screen) enhanced by L'Ombre AI synthesis.
+*   **Sovereign Telemetry**: Privacy-preserving daily active user tracking without IP or data logging.
 *   **Identity Manager 0X**: Built-in universal `@0x.com` account integration for premium workspaces.
 
 ## 🏗️ Architecture Stack
@@ -26,7 +27,7 @@
 
 ```bash
 # Clone the repository
-git clone [https://github.com/uhg-tech/orbit-0x.git](https://github.com/uhg-tech/orbit-0x.git)
+git clone [https://github.com/UHG-Tech-Corporation/orbit-0x.git](https://github.com/UHG-Tech-Corporation/orbit-0x.git)
 cd orbit-0x
 
 # Run the setup and compilation script
