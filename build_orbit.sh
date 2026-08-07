@@ -14,6 +14,7 @@ ROOT_DIR=$(pwd)
 CHROMIUM_SRC_DIR="$ROOT_DIR/src"
 ORBIT_CORE_DIR="$ROOT_DIR/src/orbit"
 DEGOOGLER_SCRIPT="$ROOT_DIR/scripts/degoogling/orbit_degoogler.py"
+ASSET_INJECTOR_SCRIPT="$ROOT_DIR/scripts/branding/orbit_asset_injector.py"
 
 # ------------------------------------------------------------------------------
 # ETAPE 1 : NETTOYAGE (DE-GOOGLING)
@@ -23,6 +24,17 @@ if [ -f "$DEGOOGLER_SCRIPT" ]; then
     python3 "$DEGOOGLER_SCRIPT"
 else
     echo "[BUILD] ❌ ERREUR: Script de De-Googling introuvable !"
+    exit 1
+fi
+
+# ------------------------------------------------------------------------------
+# ETAPE 1.5 : INJECTION DE L'IDENTITE VISUELLE
+# ------------------------------------------------------------------------------
+echo "[BUILD] Etape 1.5: Remplacement des logos Google par ORBIT 0X..."
+if [ -f "$ASSET_INJECTOR_SCRIPT" ]; then
+    python3 "$ASSET_INJECTOR_SCRIPT"
+else
+    echo "[BUILD] ❌ ERREUR: Script d'injection visuelle introuvable !"
     exit 1
 fi
 
