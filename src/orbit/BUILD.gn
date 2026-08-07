@@ -1,0 +1,59 @@
+# ==============================================================================
+# ORBIT 0X - ROOT BUILD CONFIGURATION
+# ==============================================================================
+
+import("//build/config/rust.gni")
+import("//mojo/public/tools/bindings/mojom.gni")
+
+# ------------------------------------------------------------------------------
+# 1. MOJO IPC INTERFACES
+# ------------------------------------------------------------------------------
+mojom("orbit_mojo_bindings") {
+  sources = [
+    "mojom/orbit_bridge.mojom",
+  ]
+}
+
+# ------------------------------------------------------------------------------
+# 2. RUST MODULES (CXX BINDINGS)
+# ------------------------------------------------------------------------------
+rust_static_library("orbit_ai_local") {
+  crate_root = "ai/rust/src/lib.rs"
+  sources = [ "ai/rust/src/lib.rs" ]
+  cxx_bindings = [ "ai/rust/src/lib.rs" ]
+}
+
+rust_static_library("orbit_crypto") {
+  crate_root = "crypto/rust/src/lib.rs"
+  sources = [ "crypto/rust/src/lib.rs" ]
+  cxx_bindings = [ "crypto/rust/src/lib.rs" ]
+}
+
+# ------------------------------------------------------------------------------
+# 3. C++ CORE SOURCE SET
+# ------------------------------------------------------------------------------
+source_set("orbit_core") {
+  sources = [
+    "orbit_main.cc",
+    "orbit_main_runner.cc",          # <-- AJOUT ICI
+    "orbit_main_runner.h",           # <-- AJOUT ICI
+    "ai/orbit_ai_capsule_bridge.cc",
+    "ai/orbit_ai_capsule_bridge.h",
+    "ai/cloud/orbit_cloud_ai_connector.cc",
+    "ai/cloud/orbit_cloud_ai_connector.h",
+    "adblock/orbit_network_interceptor.cc",
+    "adblock/orbit_network_interceptor.h",
+    "identity/orbit_identity_manager.cc",
+    "identity/orbit_identity_manager.h",
+    "ui/newtab/orbit_new_tab_page.cc",
+    "ui/newtab/orbit_new_tab_page.h",
+  ]
+  
+  deps = [
+    ":orbit_mojo_bindings",
+    ":orbit_ai_local",
+    ":orbit_crypto",
+    "//base",
+  ]
+}
+

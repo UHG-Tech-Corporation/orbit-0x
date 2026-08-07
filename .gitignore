@@ -1,0 +1,39 @@
+﻿# ==============================================================================
+# ORBIT 0X - GIT IGNORE POLICIES
+# ==============================================================================
+
+# Chromium & Ninja Build Outputs
+out/
+out_Release/
+out_Debug/
+.ninja_deps
+.ninja_log
+args.gn.local
+
+# Rust Target Outputs
+**/target/
+**/*.rs.bk
+
+# Binaires générés
+*.exe
+*.dll
+*.so
+*.dylib
+*.app
+
+# Fichiers de cache et temporaires
+*.log
+.DS_Store
+Thumbs.db
+node_modules/
+__pycache__/
+*.pyc
+*.swp
+
+# IDE & System
+.vscode/
+.idea/
+
+# Sécurité (Ne jamais envoyer les outils lourds de Google par erreur)
+depot_tools/
+chromium/

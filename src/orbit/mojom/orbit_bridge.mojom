@@ -1,0 +1,23 @@
+﻿// ==============================================================================
+// ORBIT 0X - MOJO IPC BRIDGE PROTOCOL
+// Sovereign Web Gateway | UHG-TECH LTD
+// ==============================================================================
+
+module orbit.mojom;
+
+// Interface hébergée dans le processus principal (sécurisé).
+// Les processus de rendu (les onglets) appellent ces méthodes.
+interface OrbitSystemBridge {
+    // Vérifie la signature cryptographique 0X d'une ressource web ou d'une app
+    Verify0XSignature(string resource_hash) => (bool is_valid);
+
+    // Exécute une application conteneurisée dans la Sandbox OMNEX 0X OS
+    Execute0XContainer(string app_id) => (int32 process_id);
+
+    // Demande à l'IA locale (L'Ombre) de traiter un prompt
+    QueryLocalAI(string prompt) => (string response);
+    
+    // Vérifie le statut de l'utilisateur (Identity Manager)
+    CheckUserStatus() => (bool is_logged_in, bool is_premium);
+};
+
