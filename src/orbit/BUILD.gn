@@ -52,6 +52,7 @@ source_set("orbit_core") {
     "ui/search/orbit_search_provider_manager.h",   # <-- AJOUT : Moteur de recherche neutre
     "telemetry/orbit_sovereign_telemetry.cc",      # <-- AJOUT : Télémétrie Souveraine
     "telemetry/orbit_sovereign_telemetry.h",       # <-- AJOUT : Télémétrie Souveraine
+    "ui/branding/orbit_theme_colors.h",            # <-- AJOUT : Charte graphique souveraine
   ]
   
   deps = [
